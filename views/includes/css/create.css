@@ -10,15 +10,15 @@ input {
     margin-bottom: 20px;
 }
 
-form .btn {
+.btn {
     border: solid 1px #00308F;
 }
 
-form .btn:hover {
+.btn:hover {
     background-color: #00308F;
     color: white !important;
 }
 
-form .btn:focus {
+.btn:focus {
     box-shadow: none;
 }
