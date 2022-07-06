@@ -1,0 +1,24 @@
+form .lead {
+    font-weight: 600;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+form .btn {
+    border: solid 1px #00308F;
+}
+
+form .btn:hover {
+    background-color: #00308F;
+    color: white !important;
+}
+
+form .btn:focus {
+    box-shadow: none;
+}
