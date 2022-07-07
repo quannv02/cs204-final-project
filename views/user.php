@@ -1,7 +1,6 @@
 <?php
 include "includes/head.php";
 ?>
-    <link rel="stylesheet" href="includes/css/user.css">
 
     <div class="createorder jumbotron bg-white mx-4 my-3 p-5 rounded-0">
         <h1 class="display-4 font-weight-normal">Hi there!</h1>

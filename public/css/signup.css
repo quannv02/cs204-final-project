@@ -1,0 +1,37 @@
+.wtw {
+    width: 650px;
+    align-items: center;
+    margin: 159px 0;
+}
+
+.signup-form {
+    width: 400px;
+    margin: 0;
+    align-self: center;
+}
+
+.btn {
+    border: solid 1px #00308F;
+}
+
+.btn:hover {
+    background-color: #00308F;
+    color: white !important;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+@media (max-width: 1080px) {
+    .signup-form {
+        width: 525px;
+        margin: 20px 0 80px 0;
+    }
+
+    .wtw {
+        padding: 0 !important;
+        text-align: center !important;
+        margin: 50px 0 25px 0;
+    }
+}

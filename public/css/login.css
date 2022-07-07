@@ -1,0 +1,33 @@
+.wb {
+    width: 525px;
+    align-items: center;
+}
+
+.login-form {
+    width: 400px;
+    margin: 203px 0;
+}
+
+.btn {
+    border: solid 1px #00308F;
+}
+
+.btn:hover {
+    background-color: #00308F;
+    color: white !important;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+@media (max-width: 1000px) {
+    .login-form {
+        width: 525px;
+        margin: 20px 0 80px 0;
+    }
+
+    .wb {
+        padding: 0 !important;
+    }
+}
