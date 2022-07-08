@@ -42,8 +42,8 @@ class UsersController extends Controller {
         // call User validateNewUser($this->req)->success()
         if($user->validateNewUser($this->req)->success()) {
             if($user->create()->success()) {
-                $user->login();
-                Router::redirect("");
+                $successNoti = "Sign up successfully!";
+                include "views/login.php";
             }
         } else {
             $errors = $user->errors;

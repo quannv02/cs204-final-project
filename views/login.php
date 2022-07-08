@@ -9,6 +9,9 @@ include "includes/head.php";
             <h1 class="d-flex wb display-2 font-weight-bolder p-5">Welcome Back!</h1>
             <div class="login-form container">
                 <form action="<?= ROOT ?>login" method="post">
+                    <?php if(isset($successNoti)): ?>
+                        <div class="alert alert-success"><?=$successNoti?></div>
+                    <?php endif;?>
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" name="username" class="form-control">
