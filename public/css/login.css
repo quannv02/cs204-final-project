@@ -1,11 +1,13 @@
 .wb {
     width: 525px;
     align-items: center;
+    margin: 159px 0;
 }
 
 .login-form {
     width: 400px;
-    margin: 203px 0;
+    margin: 0;
+    align-self: center;
 }
 
 .btn {
@@ -29,5 +31,6 @@
 
     .wb {
         padding: 0 !important;
+        margin: 48px 0;
     }
 }

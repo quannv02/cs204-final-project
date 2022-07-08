@@ -8,7 +8,7 @@ include "includes/head.php";
     <div class="row justify-content-center">
         <h1 class="d-flex wtw display-2 font-weight-bolder p-5 text-right">Welcome to WEXPress!</h1>
         <div class="signup-form container">
-            <form action="<?= ROOT ?>user/signup" method="post">
+            <form action="<?= ROOT ?>signup" method="post">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" name="username" class="form-control">

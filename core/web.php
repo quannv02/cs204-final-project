@@ -6,22 +6,32 @@ Router::get("", function() {
     $homeController->index();
 });
 
-Router::get("user/login", function() {
+Router::get("login", function() {
     $usersController = new UsersController;
     $usersController->getLogin();
 });
 
-Router::post("user/login", function() {
+Router::post("login", function() {
     $usersController = new UsersController;
     $usersController->login();
 });
 
-Router::get("user/signup", function() {
+Router::get("signup", function() {
     $usersController = new UsersController;
     $usersController->getSignup();
 });
 
-Router::post("user/signup", function() {
+Router::post("signup", function() {
     $usersController = new UsersController;
     $usersController->create();
+});
+
+Router::get("logout", function() {
+    $usersController = new UsersController;
+    $usersController->logout();
+});
+
+Router::get("my-page", function() {
+    $myPageController = new MyPageController;
+    $myPageController->getMyPage();
 });

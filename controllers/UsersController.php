@@ -23,14 +23,15 @@ class UsersController extends Controller {
        if($user->getUserByName($this->req['username'])->checkUserExists()) {
             if($user->validateLogin($this->req)->success()) {
                 $user->login();
-                Messenger::setMsg("Logged in!", "success");
+                //Messenger::setMsg("Logged in!", "success");
                 Router::redirect("");
             } else {
-               echo "password fail!";
-               var_dump($user->user);
+                $errors[] = "Password fail!";
+                include "views/login.php";
+               //var_dump($user->user);
             }
        } else {
-            $errors['username_err'] = "User does not exist!";
+            $errors[] = "User does not exist!";
             include "views/login.php";
        }
     }
@@ -51,7 +52,7 @@ class UsersController extends Controller {
     }
 
     public function logout() {
-        Messenger::setMsg("Logged out!", "warning");
+        //Messenger::setMsg("Logged out!", "warning");
         $_SESSION = [];
         Router::redirect("");
     }

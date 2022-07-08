@@ -16,7 +16,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-sm bg-white">
-        <a class="navbar-brand" href="#">WEXP<span>ress</span></a>
+        <a class="navbar-brand" href="<?= ROOT ?>">WEXP<span>ress</span></a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,20 +25,20 @@
             <ul class="navbar-nav ml-auto">
                 <?php if($_SESSION['logged_in'] == true): ?>
                     <li class="nav-item active">
-                        <a class="nav-link border-right mr-2 pr-3" href="#">My page<span class="sr-only">(current)</span></a>
+                        <a class="nav-link border-right mr-2 pr-3" href="<?= ROOT ?>my-page">My page<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle mr-2" aria-hidden="true"></i><?= $_SESSION['user_name'];?></a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="<?= ROOT ?>user/logout">Log out</a>
+                            <a class="dropdown-item" href="<?= ROOT ?>logout">Log out</a>
                         </div>
                     </li>
                 <?php else: ?>
                     <li class="nav-item active">
-                        <a class="nav-link" href="<?= ROOT ?>user/signup">Sign up<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="<?= ROOT ?>signup">Sign up<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="<?= ROOT ?>user/login">Log in<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="<?= ROOT ?>login">Log in<span class="sr-only">(current)</span></a>
                     </li>
                 <?php endif ?>
                 
