@@ -2,7 +2,7 @@
 include "includes/head.php";
 ?>
 
-<link rel="stylesheet" href="<?= ROOT ?>/public/css/signup.css"></link>
+<link rel="stylesheet" href="<?= ROOT ?>public/css/signup.css"></link>
 
 <div class="signup container-fluid">
     <div class="row justify-content-center">

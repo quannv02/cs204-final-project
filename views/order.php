@@ -2,7 +2,7 @@
 include "includes/head.php"
 ?>
 
-<link rel="stylesheet" href="<?= ROOT ?>/public/css/create.css"></link>
+<link rel="stylesheet" href="<?=ROOT?>public/css/create.css">
 
 <div class="container-sm mt-3">
   <?php if(isset($successNoti)): ?>

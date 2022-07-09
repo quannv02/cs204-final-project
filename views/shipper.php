@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?= ROOT ?>/public/css/shipper.css"></link>
+<link rel="stylesheet" href="<?= ROOT ?>public/css/shipper.css"></link>
 
 <div class="orders jumbotron bg-white mx-4 my-3 p-5 rounded-0">
     <h3 class="mb-3">Available Orders</h3>

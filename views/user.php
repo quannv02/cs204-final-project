@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?= ROOT ?>/public/css/user.css"></link>
+<link rel="stylesheet" href="<?= ROOT ?>public/css/user.css"></link>
 
 <div class="createorder jumbotron bg-white mx-4 my-3 p-5 rounded-0">
     <h1 class="display-4 font-weight-normal">Hi there!</h1>

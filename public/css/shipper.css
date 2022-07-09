@@ -1,10 +1,10 @@
 .orders {
-    background-color: #00308F;
+    background-color: #263069;
 }
 
 .order {
     border-radius: 10px;
-    border: solid 1px #00308F;
+    border: solid 1px #263069;
     padding: 15px 20px;
     margin-bottom: 15px;
 }
@@ -12,13 +12,13 @@
 .orders button {
     height: 50px;
     align-self: center;
-    background-color: #00308F;
+    background-color: #263069;
 }
 
 .orders button:hover {
     background-color: #e9ecef;
-    color: #00308F !important;
-    border: solid 1px #00308F;
+    color: #263069 !important;
+    border: solid 1px #263069;
 }
 
 @media (max-width: 710px) {
