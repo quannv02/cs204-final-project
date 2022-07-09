@@ -1,8 +1,124 @@
-.hero img {
-    width: 100%;
+* {
+    font-family: "Sora", sans-serif;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+a:hover {
+    color: white;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 22.5px;
+    color: white;
+    transition: height .75s ease;
+}
+
+.navbar-brand  span {
+    font-weight: 400;
+    color: white;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+    left: -55px;
+}
+
+.dropdown-item:active {
+    background-color: lightgray !important;
+}
+
+.hero {
+    height: 1250px;
+    background-image: url(https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1965&q=80);
+    background-size: cover;
 }
 
 .navbar {
-    position: absolute;
     width: 100%;
+    background-color: transparent;
+    transition: background-color .75s ease;
+}
+
+.nav-link, .nav-link i  {
+    color: white;
+}
+
+/*after scroll*/
+
+.after-scroll {
+    background-color: white !important;
+    box-shadow: 0px 0px 7.5px -2.5px lightgrey;
+}
+
+.after-scroll .nav-link {
+    color: #263069 !important;
+}
+
+.after-scroll .nav-link i {
+    color: #263069 !important;
+}
+
+.after-scroll .navbar-brand {
+    color: #263069 !important;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+}
+
+.after-scroll .navbar-brand span {
+    color: #263069 !important;
+}
+
+.after-scroll a:hover {
+    color: #263069 !important;
+}
+
+.hero .container {
+    position: relative;
+    top: 250px;
+}
+
+.hero-title {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1125px) {
+    .hero .container {
+        text-align: center;
+        width: 60%;  
+        top: 200px;     
+    }
+    
+    .hero-title {
+        margin-bottom: 25px;
+    }
+
+    .hero-btn {
+        margin-left: auto !important;
+        margin-right: auto;
+    }
+}
+
+.hero a:hover {
+    text-decoration: none;
+}
+
+.hero-btn {
+    color: white;
+    padding: 15px;
+    margin-left: 10px;
+    border: solid 2px white;
+    border-radius: 100px;
+}
+
+.hero-btn:hover {
+    color: darkslategray;
+    background-color: white;
 }
