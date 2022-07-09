@@ -27,6 +27,7 @@
                 <th scope="col">Parcel Name</th>
                 <th scope="col">Cost</th>
                 <th scope="col">Status</th>
+                <th scope="col" width=7%> </th>
             </tr>
         </thead>
         <tbody>
@@ -50,12 +51,21 @@
                     <td><?php echo $order['weight']*10000; ?></td>
                     <?php if($order['status'] == 1): ?>
                       <td>Order Created</td>
+                      <td>
+                          <form action='delete' method='post'>
+                              <input type='hidden' value='<?=$order['id']?>' name='delete'>
+                              <?php CSRF::outputToken(); ?>
+                              <button type='submit' class='delete bg-transparent' data-id="<?= $order['id']; ?>" data-status="<?= $order['status']; ?>"><i class="fa fa-trash"></i></button>
+                          </form>
+                        </td>
                     <?php endif; ?>
                     <?php if($order['status'] == 2): ?>
                       <td class="text-warning">Order Shipped</td>
+                      <td></td>
                     <?php endif; ?>
                     <?php if($order['status'] == 3): ?>
                       <td class="text-success">Order Arrived</td>
+                      <td></td>
                     <?php endif; ?>
                 </tr>
               <?php endforeach; ?>

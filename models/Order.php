@@ -133,4 +133,12 @@ class Order {
         return $this;
     }
 
+    public function delete($order) {
+        $this->order_id = $order['delete'];
+        $sql = "DELETE FROM orders WHERE orders.id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $this->order_id);
+        $stmt->execute();
+    }
+
 }

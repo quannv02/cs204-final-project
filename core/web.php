@@ -55,3 +55,8 @@ Router::post("search", function() {
     $myPageController = new MyPageController;
     $myPageController->search();
 });
+
+Router::post("delete", function() {
+    $myPageController = new MyPageController;
+    $myPageController->delete();
+});
