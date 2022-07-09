@@ -11,11 +11,11 @@
 }
 
 .btn {
-    border: solid 1px #00308F;
+    border: solid 1px #263069;
 }
 
 .btn:hover {
-    background-color: #00308F;
+    background-color: #263069;
     color: white !important;
 }
 

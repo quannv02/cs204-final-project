@@ -2,7 +2,7 @@
 include "includes/head.php"
 ?>
 
-<link rel="stylesheet" href="includes/css/create.css">
+<link rel="stylesheet" href="<?=ROOT?>public/css/create.css">
 
 <div class="container-sm my-5 px-5">
   <form>

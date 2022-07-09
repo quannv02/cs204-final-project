@@ -1,6 +1,6 @@
 * {
     font-family: "Sora", sans-serif;
-    color: #00308F !important;
+    color: #263069 !important;
 }
 
 body {
@@ -9,6 +9,7 @@ body {
 
 .navbar-brand {
     font-weight: 800;
+    font-size: 22.5px;
 }
 
 .navbar-brand > span {
@@ -35,4 +36,13 @@ body {
 
 .nav-link:hover {
     text-decoration: underline;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+    left: -55px;
+}
+
+.dropdown-item:active {
+    background-color: lightgray !important;
 }
