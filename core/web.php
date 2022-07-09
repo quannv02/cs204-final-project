@@ -35,3 +35,23 @@ Router::get("my-page", function() {
     $myPageController = new MyPageController;
     $myPageController->getMyPage();
 });
+
+Router::get("create", function() {
+    $ordersController = new OrdersController;
+    $ordersController->getCreateOrder();
+});
+
+Router::post("create", function() {
+    $ordersController = new OrdersController;
+    $ordersController->create();
+});
+
+Router::get("order/{id}", function($id) {
+    $ordersController = new OrdersController;
+    $ordersController->getOrder($id);
+});
+
+Router::post("search", function() {
+    $myPageController = new MyPageController;
+    $myPageController->search();
+});

@@ -23,3 +23,15 @@
 .createorder .btn:focus {
     box-shadow: none;
 }
+
+ .table-func {
+    overflow-y: auto;
+    height: 300px;
+  }
+
+  .table-func th {
+    top: 0;
+    position: sticky;
+    background-color: white !important;
+    box-shadow: inset 0px 1px #e2e2e2, 0 1px #000;
+  }
