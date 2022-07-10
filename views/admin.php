@@ -1,7 +1,7 @@
 <div class="myorders jumbotron bg-white mx-4 my-3 p-5 rounded-0">
     <h3 class="ml-2">Shippers Management</h3>
 
-  <div class="table-func mt-3">
+  <div class="table-func mt-3" style="max-height: 750px; overflow: scroll; ">
     <table class="table table-striped w-100">
         <thead>
             <tr>
