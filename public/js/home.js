@@ -21,3 +21,11 @@ window.addEventListener('scroll', function () {
         elem.classList.add("appear");
     }
 })
+
+window.addEventListener('scroll', function () {
+    var elem = document.querySelector('.tracking');
+    var distInView = elem.getBoundingClientRect().top - window.innerHeight + 20;
+    if (distInView < 0) {
+        elem.classList.add("appear");
+    }
+})

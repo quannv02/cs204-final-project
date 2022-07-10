@@ -15,7 +15,7 @@ include "includes/head-home.php"
                     <div class="hero-btn"><h3 class="m-0 text-center">Join Us</h3></div>
                 </a>
             <?php elseif($_SESSION['user_role'] == 2):?>
-                <a href="<?=ROOT?>create" style="width: 225px;">
+                <a href="<?=ROOT?>create" style="width: 235px;">
                     <div class="hero-btn"><h3 class="m-0 text-center">Create Order</h3></div>
                 </a>
             <?php endif;?>
@@ -37,8 +37,8 @@ include "includes/head-home.php"
                 </div>
                 <button class="btn btn-outline-light text-white">Search</button>
             </div>
-            
         </div>
+        
     </div>
 </div>
 
