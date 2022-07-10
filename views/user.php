@@ -16,7 +16,7 @@
         <input type="text" name="search" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Tracking Number">
         <?php CSRF::outputToken(); ?>
         <button type="submit" class="btn mb-2 text-white">Search</button>
-     </form>
+    </form>
 
   <div class="table-func mt-3">
     <table class="table table-striped w-100">
@@ -39,10 +39,10 @@
                   ?>
               </div>
           <?php else: ?>
-            <?php if(empty($orders)): ?>
+            <?php if(empty($orders_by_id)): ?>
               <div class="alert alert-warning">You have no order!</div>
             <?php else: ?>
-              <?php foreach($orders as $order): ?>
+              <?php foreach($orders_by_id as $order): ?>
                 <tr>
                     <td scope="row"><a href="<?= ROOT ?>order/<?php echo $order['id'] ?>"><?= $order['id']; ?></a></td>
                     <td><?php echo $order['recipient_name']; ?></td>

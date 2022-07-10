@@ -55,3 +55,8 @@ Router::post("search", function() {
     $myPageController = new MyPageController;
     $myPageController->search();
 });
+
+Router::get("pickup", function($id) {
+    $ordersController = new ShippersController;
+    $ordersController->pickUp($id);
+});

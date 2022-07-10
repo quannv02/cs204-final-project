@@ -26,11 +26,9 @@ class OrdersController extends Controller {
     public function create() {
         $order = new Order($this->conn);
         if($order->validateOrder($this->req)->success()) {
-           if($order->createNewOrder()->success()) {
+          if($order->createNewOrder()->success()) {
             header("Location: " . ROOT . "order/" . $order->order_id);
-            $successNoti = "Successfully placed the order!";
-            include "views/order.php";
-           }
+          }
         } else {
             $errors = $order->errors;
             include "views/create.php";
