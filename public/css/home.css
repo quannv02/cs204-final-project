@@ -149,8 +149,9 @@ a:hover {
     }
 
     .tracking button {
-        margin-top: 20px;
+        margin-top: 15px;
         height: 62px;
+        width: 80% !important;
     }
 }
 
@@ -200,6 +201,10 @@ a:hover {
     background-color: white !important;
     color: darkslategrey !important;
     transition: all 0.75s ease;
+}
+
+.tracking button:focus {
+    box-shadow: none !important;
 }
 
 input {
