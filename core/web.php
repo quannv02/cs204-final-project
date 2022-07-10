@@ -55,3 +55,13 @@ Router::post("search", function() {
     $myPageController = new MyPageController;
     $myPageController->search();
 });
+
+Router::get("admin/qualify/{username}", function($username) {
+    $userController = new UsersController;
+    $userController->verify($username, 1);
+});
+
+Router::get("admin/disqualify/{username}", function($username) {
+    $userController = new UsersController;
+    $userController->verify($username, 0);
+});

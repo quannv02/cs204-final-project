@@ -3,7 +3,6 @@ include "includes/head.php";
 ?>
 
 <link rel="stylesheet" href="<?= ROOT ?>public/css/login.css"></link>
-
     <div class="container-fluid">
         <div class="row justify-content-center">
             <h1 class="d-flex wb display-2 font-weight-bolder p-5">Welcome Back!</h1>

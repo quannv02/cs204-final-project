@@ -26,7 +26,10 @@ class UsersController extends Controller {
                 //Messenger::setMsg("Logged in!", "success");
                 Router::redirect("");
             } else {
-                $errors[] = "Password fail!";
+                foreach($user->errors as $err) {
+                    $errors[] = $err;
+                }
+                //var_dump($user->errors);
                 include "views/login.php";
                //var_dump($user->user);
             }
@@ -49,6 +52,13 @@ class UsersController extends Controller {
             $errors = $user->errors;
             include "views/signup.php";
         }
+    }
+
+    public function verify($username ,$status) {
+        $user = new User($this->conn);
+        $user->update($username, $status); // $this->req = $_POST
+        //Messenger::setMsg("Todo updated!", "success");
+        Router::redirect("my-page");
     }
 
     public function logout() {
