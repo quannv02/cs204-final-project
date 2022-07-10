@@ -26,7 +26,7 @@ class UsersController extends Controller {
                 //Messenger::setMsg("Logged in!", "success");
                 Router::redirect("");
             } else {
-                $errors[] = "Password fail!";
+                foreach($user->errors as $err) {
                     $errors[] = $err;
                 }
                 //var_dump($user->errors);
