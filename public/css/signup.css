@@ -35,3 +35,7 @@
         margin: 50px 0 25px 0;
     }
 }
+
+.signup-form a:hover {
+    text-decoration: none;
+}

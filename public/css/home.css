@@ -14,12 +14,13 @@ a:hover {
     font-weight: 800;
     font-size: 22.5px;
     color: white;
-    transition: height .75s ease;
+    transition: all .75s ease;
 }
 
 .navbar-brand  span {
     font-weight: 400;
     color: white;
+    transition: all .75s ease;
 }
 
 .nav-link:hover {
@@ -36,7 +37,7 @@ a:hover {
 }
 
 .hero {
-    height: 1250px;
+    height: 1750px;
     background-image: url(https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1965&q=80);
     background-size: cover;
 }
@@ -44,18 +45,19 @@ a:hover {
 .navbar {
     width: 100%;
     background-color: transparent;
-    transition: background-color .75s ease;
+    transition: all .75s ease;
 }
 
 .nav-link, .nav-link i  {
     color: white;
+    transition: all 0.75s ease;
 }
 
 /*after scroll*/
 
 .after-scroll {
     background-color: white !important;
-    box-shadow: 0px 0px 7.5px -2.5px lightgrey;
+    box-shadow: 0px 0px 1px 1px white;
 }
 
 .after-scroll .nav-link {
@@ -68,8 +70,8 @@ a:hover {
 
 .after-scroll .navbar-brand {
     color: #263069 !important;
-    padding-top: 7.5px;
-    padding-bottom: 7.5px;
+    /* padding-top: 7.5px;
+    padding-bottom: 7.5px; */
 }
 
 .after-scroll .navbar-brand span {
@@ -80,9 +82,27 @@ a:hover {
     color: #263069 !important;
 }
 
-.hero .container {
+.hero-content {
     position: relative;
     top: 250px;
+}
+
+.hero-title, .hero-btn, .believe {
+    -webkit-transform: translateY(50px) rotate(0) translateZ(0);
+    transform: translateY(50px) rotate(0) translateZ(0);
+    -webkit-transition-delay: .3s;
+    -o-transition-delay: .3s;
+    transition-delay: .3s;
+    -webkit-transition: 2s;
+    -o-transition: 2s;
+    transition: 2s;
+    opacity: 0;
+}
+
+.appear {
+    opacity: 1;
+    -webkit-transform: translateY(0px) rotate(0deg) translateZ(0);
+    transform: translateY(0px) rotate(0deg) translateZ(0);
 }
 
 .hero-title {
@@ -90,7 +110,7 @@ a:hover {
 }
 
 @media (max-width: 1125px) {
-    .hero .container {
+    .hero-content {
         text-align: center;
         width: 60%;  
         top: 200px;     
@@ -104,6 +124,38 @@ a:hover {
         margin-left: auto !important;
         margin-right: auto;
     }
+
+    .hero a {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .believe {
+        width: 85% !important;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 250px !important;
+        padding: 0 !important;
+    }
+
+    .believe p {
+        font-size: 2vw;
+    }
+
+    .tracking .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tracking button {
+        margin-top: 20px;
+        height: 62px;
+    }
+}
+
+.hero a {
+    display: block;
 }
 
 .hero a:hover {
@@ -121,4 +173,125 @@ a:hover {
 .hero-btn:hover {
     color: darkslategray;
     background-color: white;
+    box-shadow: 0 0 1px 1px white;
+    cursor: pointer;
+    transition: all 0.75s ease;
 }
+
+.believe {
+    margin-top: 330px;
+    color: white;
+    width: 960px;
+    padding-right: 200px;
+}
+
+.tracking {
+    color: white;
+    margin-top: 250px;
+}
+
+.tracking button {
+    border-radius: 35px;
+    width: 17.5%;
+    font-size: 19px;
+}
+
+.tracking button:hover {
+    background-color: white !important;
+    color: darkslategrey !important;
+    transition: all 0.75s ease;
+}
+
+input {
+	outline: none;
+	border: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+textarea:focus, input:focus {
+    border-color: transparent !important;
+}
+  
+input::-webkit-input-placeholder { color: #bdbdd3;}
+input:-moz-placeholder { color: #bdbdd3;}
+input::-moz-placeholder { color: #bdbdd3;}
+input:-ms-input-placeholder { color: #bdbdd3;}
+  
+textarea::-webkit-input-placeholder { color: #bdbdd3;}
+textarea:-moz-placeholder { color: #bdbdd3;}
+textarea::-moz-placeholder { color: #bdbdd3;}
+textarea:-ms-input-placeholder { color: #bdbdd3;}
+
+.wrap-input100 {
+    width: 80%;
+    background-color: #fff;
+    border-radius: 31px;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+}
+  
+.input100 {
+    position: relative;
+    display: block;
+    width: 100%;
+    background: #fff;
+    border-radius: 31px;
+    font-size: 18px;
+    color: #8f8fa1;
+    line-height: 1.2;
+}
+  
+  
+  /*---------------------------------------------*/
+input.input100 {
+    height: 62px;
+    padding: 0 35px 0 35px;
+}
+  
+  
+textarea.input100 {
+    min-height: 169px;
+    padding: 19px 35px 0 35px;
+}
+  
+  /*------------------------------------------------------------------
+  [ Focus Input ]*/
+  
+.focus-input100 {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    border-radius: 31px;
+    background-color: #fff;
+    pointer-events: none;
+    
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+  
+.input100:focus + .focus-input100 {
+    width: calc(100% + 20px);
+}
+  
