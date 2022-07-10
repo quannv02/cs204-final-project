@@ -65,3 +65,8 @@ Router::get("admin/disqualify/{username}", function($username) {
     $userController = new UsersController;
     $userController->verify($username, 0);
 });
+
+Router::post("track", function() {
+    $homeController = new HomeController;
+    $homeController->track();
+});

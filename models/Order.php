@@ -133,4 +133,21 @@ class Order {
         return $this;
     }
 
+    public function track($order) {
+        $this->order_id = $order['tracking-number'];
+        $sql = "SELECT *
+                FROM orders
+                WHERE orders.id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $this->order_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if($result->num_rows !== 1) {
+            $this->errors[] = "No Order Found!";
+        } else {
+            $this->order = $result->fetch_assoc();
+        }
+        return $this;
+    }
+
 }
