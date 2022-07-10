@@ -56,7 +56,12 @@ Router::post("search", function() {
     $myPageController->search();
 });
 
-Router::get("pickup", function($id) {
-    $ordersController = new ShippersController;
-    $ordersController->pickUp($id);
+Router::post("pick-up", function() {
+    $shippersController = new ShippersController;
+    $shippersController->pickUp();
+});
+
+Router::post("complete-order", function() {
+    $shippersController = new ShippersController;
+    $shippersController->completeOrder();
 });

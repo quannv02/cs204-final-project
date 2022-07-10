@@ -190,4 +190,43 @@ class Order {
         return $this;
     }
 
+    public function pickUp($order) {
+        $this->order_shipper_id = $_SESSION['user_id'];
+        $this->order_id = $order['pick-up'];
+        $this->order_status = 2;
+
+        $sql = "UPDATE orders
+                SET orders.shipper_id = ? AND orders.status = ?
+                WHERE orders.id = ?";
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bind_param("iii", $this->order_shipper_id, $this->order_status, $this->order_id);
+        $stmt->execute();
+        var_dump($stmt);
+
+        if($stmt->affected_rows !== 1) {
+            $this->errors[] = "Order pick up fail!";
+        }
+
+        return $this;
+    }
+
+    public function completeOrder($order) {
+      $this->order_shipper_id = $_SESSION['user_id'];
+      $this->order_id = $order['complete-order'];
+
+      $sql = "UPDATE orders
+              SET status = 3
+              WHERE shipper_id = ? AND id = ?";
+      $stmt = $this->conn->prepare($sql);
+      $stmt->bind_param("ii", $this->order_shipper_id, $this->order_id);
+      $stmt->execute();
+
+      if($stmt->affected_rows !== 1) {
+          $this->errors[] = "Order complete fail!";
+      }
+
+      return $this;
+    }
+
 }

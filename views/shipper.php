@@ -17,12 +17,20 @@
         <?php else: ?>
           <?php foreach($a_orders as $order): ?>
             <div class="order p-3 d-flex flex-wrap justify-content-between">
+
                 <a href="<?= ROOT ?>order/<?php echo $order['id'] ?>" class="order-info">
                     <p class="m-0 font-weight-bold"><span class="font-weight-normal">From: </span> <?php echo $order['sender_name']; ?></p>
                     <p class="m-0 font-weight-bold"><span class="font-weight-normal">To: </span><?php echo $order['recipient_name']; ?></p>
                     <p class="m-0">(Shipping Fee: <?php echo $order['weight']*10000; ?> VND)</p>
                 </a>
-                <button class="btn text-white" type="submit" action="">Pick Up</button>
+
+                <form action='pick-up' method='post'>
+                    <input type='hidden' value='<?= $order['id']?>' name='pick-up'>
+                    <?php CSRF::outputToken(); ?>
+
+                    <button class="btn text-white" type="submit" action="">Pick Up</button>
+                </form>
+
             </div>
           <?php endforeach; ?>
         <?php endif; ?>
@@ -47,12 +55,20 @@
         <?php else: ?>
           <?php foreach($p_orders as $order): ?>
             <div class="order p-3 d-flex flex-wrap justify-content-between">
+
                 <a href="<?= ROOT ?>order/<?php echo $order['id'] ?>" class="order-info">
                     <p class="m-0 font-weight-bold"><span class="font-weight-normal">From: </span> <?php echo $order['sender_name']; ?></p>
                     <p class="m-0 font-weight-bold"><span class="font-weight-normal">To: </span><?php echo $order['recipient_name']; ?></p>
                     <p class="m-0">(Shipping Fee: <?php echo $order['weight']*10000; ?> VND)</p>
                 </a>
-                <button class="btn text-white" type="submit" action="">Pick Up</button>
+
+                <form action='complete-order' method='post'>
+                    <input type='hidden' value='<?= $order['id']?>' name='complete-order'>
+                    <?php CSRF::outputToken(); ?>
+
+                    <button class="btn text-white" type="submit" action="">Done</button>
+                </form>
+
             </div>
           <?php endforeach; ?>
         <?php endif; ?>
@@ -82,7 +98,6 @@
                     <p class="m-0 font-weight-bold"><span class="font-weight-normal">To: </span><?php echo $order['recipient_name']; ?></p>
                     <p class="m-0">(Shipping Fee: <?php echo $order['weight']*10000; ?> VND)</p>
                 </a>
-                <button class="btn text-white" type="submit" action="">Pick Up</button>
             </div>
           <?php endforeach; ?>
         <?php endif; ?>

@@ -7,11 +7,15 @@ class ShippersController extends Controller {
         parent::__construct();
     }
 
-    public function pickUp($order_id) {
-
+    public function pickUp() {
+      $order = new Order($this->conn);
+      $order->pickUp($this->req);
+      //Router::redirect("my-page");
     }
 
     public function completeOrder($order_id) {
-      // code...
+      $order = new Order($this->conn);
+      $order->completeOrder($this->req);
+      Router::redirect("");
     }
 }
