@@ -30,13 +30,13 @@ include "includes/head-home.php"
 
         <div class="tracking">
             <h1 class="display-5 font-weight-bold mb-3">Track your parcel</h1>
-            <div class="d-flex justify-content-between flex-wrap container p-0 m-0">
+            <form action="" class="d-flex justify-content-between flex-wrap container p-0 m-0">
                 <div class="wrap-input100 validate-input m-0">
                     <input class="input100" type="text" name="tracking-number" placeholder="Tracking number">
                     <span class="focus-input100"></span>
                 </div>
-                <button class="btn btn-outline-light text-white">Search</button>
-            </div>
+                <button type="submit" class="btn btn-outline-light text-white">Search</button>
+            </form>
         </div>
         
     </div>
