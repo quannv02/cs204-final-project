@@ -5,11 +5,12 @@ window.addEventListener("load", function() {
 
 window.addEventListener('scroll', function () {
     let navbar = document.querySelector('nav');
+    console.log(window.scrollY);
     if (window.innerWidth > 1125) {
-        let windowPosition = (window.scrollY > 175 && window.scrollY < 565) || window.scrollY > 1200;
+        let windowPosition = (window.scrollY > 175 && window.scrollY < 565) || window.scrollY > 565;
         navbar.classList.toggle('after-scroll', windowPosition);
     } else {
-        let windowPosition = (window.scrollY > 175 && window.scrollY < 650) || window.scrollY > 1250;
+        let windowPosition = (window.scrollY > 175 && window.scrollY < 650) || window.scrollY > 650;
         navbar.classList.toggle('after-scroll', windowPosition);
     }
 })
