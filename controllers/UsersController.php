@@ -27,6 +27,9 @@ class UsersController extends Controller {
                 Router::redirect("");
             } else {
                 $errors[] = "Password fail!";
+                    $errors[] = $err;
+                }
+                //var_dump($user->errors);
                 include "views/login.php";
                //var_dump($user->user);
             }
@@ -49,6 +52,13 @@ class UsersController extends Controller {
             $errors = $user->errors;
             include "views/signup.php";
         }
+    }
+
+    public function verify($username ,$status) {
+        $user = new User($this->conn);
+        $user->update($username, $status); // $this->req = $_POST
+        //Messenger::setMsg("Todo updated!", "success");
+        Router::redirect("my-page");
     }
 
     public function logout() {

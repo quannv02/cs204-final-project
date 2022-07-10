@@ -12,6 +12,9 @@ class MyPageController extends Controller {
         $order = new Order($this->conn);
         $order->fetchOrders();
         $orders = $order->getOrders();
+        $shipper = new User($this->conn);
+        $shipper->fetchShippers();
+        $shippers = $shipper->getShippers();
         include "views/mypage.php";
     }
 

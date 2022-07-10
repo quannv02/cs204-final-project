@@ -2,7 +2,7 @@
 include "includes/head.php";
 ?>
 
-<link rel="stylesheet" href="<?= ROOT ?>/public/css/signup.css"></link>
+<link rel="stylesheet" href="<?= ROOT ?>public/css/signup.css"></link>
 
 <div class="signup container-fluid">
     <div class="row justify-content-center">
@@ -47,6 +47,9 @@ include "includes/head.php";
                 <?php endif; ?>
                 <button type="submit" class="btn btn-block mt-4">Sign Up</button>
             </form>
+            <hr>
+            <p>Already have an account? </p>
+            <a href="<?=ROOT?>login"><button class="btn btn-block mt-2">Login</button></a>
         </div>
     </div>
 </div>
