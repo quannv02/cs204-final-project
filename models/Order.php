@@ -190,9 +190,9 @@ class Order {
         return $this;
     }
 
-    public function pickUp($order) {
+    public function pickUp($order_id) {
         $this->order_shipper_id = $_SESSION['user_id'];
-        $this->order_id = $order['pick-up'];
+        $this->order_id = $order_id;
         $this->order_status = 2;
 
         $sql = "UPDATE orders
@@ -211,15 +211,16 @@ class Order {
         return $this;
     }
 
-    public function completeOrder($order) {
+    public function completeOrder($order_id) {
       $this->order_shipper_id = $_SESSION['user_id'];
-      $this->order_id = $order['complete-order'];
+      $this->order_id = $order_id;
+      $this->order_status = 3;
 
       $sql = "UPDATE orders
-              SET status = 3
-              WHERE shipper_id = ? AND id = ?";
+              SET orders.status = ?
+              WHERE orders.shipper_id = ? AND orders.id = ?";
       $stmt = $this->conn->prepare($sql);
-      $stmt->bind_param("ii", $this->order_shipper_id, $this->order_id);
+      $stmt->bind_param("iii", $this->order_status, $this->order_shipper_id, $this->order_id);
       $stmt->execute();
 
       if($stmt->affected_rows !== 1) {
