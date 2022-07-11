@@ -18,6 +18,7 @@
           <table class="table table-striped w-100">
               <thead>
                   <tr>
+                      <th scope="col">Order Number</th>
                       <th scope="col">Sender Name</th>
                       <th scope="col">Recipient Name</th>
                       <th scope="col">Shipping Fee</th>
@@ -27,14 +28,15 @@
               <tbody>
                 <?php foreach($a_orders as $order): ?>
                   <tr>
-                    <a href="<?= ROOT ?>order/<?php echo $order['id'] ?>" class="order-info">
+                      <td scope="row"><a href="<?= ROOT ?>order/<?php echo $order['id'] ?>"><?= $order['id']; ?></a></td>
                       <td></span> <?php echo $order['sender_name']; ?></td>
                       <td></span> <?php echo $order['recipient_name']; ?></td>
                       <td><?php echo $order['weight']*10000; ?> VND</td>
-                      <td><form action='<?= ROOT ?>pick-up/<?= $order['id']?>'>
+                      <td>
+                        <form action='<?= ROOT ?>pick-up/<?= $order['id']?>'>
                           <button class="btn text-white" type="submit" action="">Pick Up</button>
-                      </form></td>
-                    </a>
+                        </form>
+                      </td>
                   </tr>
                 <?php endforeach; ?>
               </tbody>
@@ -62,6 +64,7 @@
           <table class="table table-striped w-100">
               <thead>
                   <tr>
+                      <th scope="col">Order Number</th>
                       <th scope="col">Sender Name</th>
                       <th scope="col">Recipient Name</th>
                       <th scope="col">Shipping Fee</th>
@@ -71,14 +74,15 @@
               <tbody>
                 <?php foreach($p_orders as $order): ?>
                   <tr>
-                    <a href="<?= ROOT ?>order/<?php echo $order['id'] ?>" class="order-info">
+                      <td scope="row"><a href="<?= ROOT ?>order/<?php echo $order['id'] ?>"><?= $order['id']; ?></a></td>
                       <td></span> <?php echo $order['sender_name']; ?></td>
                       <td></span> <?php echo $order['recipient_name']; ?></td>
                       <td><?php echo $order['weight']*10000; ?> VND</td>
-                      <td><form action='<?= ROOT ?>complete-order/<?= $order['id']?>'>
+                      <td class="row">
+                        <form action='<?= ROOT ?>complete-order/<?= $order['id']?>'>
                           <button class="btn text-white" type="submit" action="">Done</button>
-                      </form></td>
-                    </a>
+                        </form>
+                      </td>
                   </tr>
                 <?php endforeach; ?>
               </tbody>
