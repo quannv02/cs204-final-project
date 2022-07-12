@@ -56,6 +56,20 @@ Router::post("search", function() {
     $myPageController->search();
 });
 
+Router::get("admin/qualify/{username}", function($username) {
+    $userController = new UsersController;
+    $userController->verify($username, 1);
+});
+
+Router::get("admin/disqualify/{username}", function($username) {
+    $userController = new UsersController;
+    $userController->verify($username, 0);
+});
+
+Router::post("track", function() {
+    $homeController = new HomeController;
+    $homeController->track();
+
 Router::get("pick-up/{id}", function($order_id) {
     $shippersController = new ShippersController;
     $shippersController->pickUp($order_id);
