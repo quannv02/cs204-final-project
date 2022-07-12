@@ -196,7 +196,7 @@ class Order {
         $this->order_status = 2;
 
         $sql = "UPDATE orders
-                SET orders.shipper_id = ? AND orders.status = ?
+                SET orders.shipper_id = ?, orders.status = ?
                 WHERE orders.id = ?";
         $stmt = $this->conn->prepare($sql);
 
