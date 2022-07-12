@@ -12,6 +12,7 @@ class MyPageController extends Controller {
         $a_orders = [];
         $p_orders = [];
         $c_orders = [];
+        $shippers = [];
 
         $order = new Order($this->conn);
         $order->fetchOrdersByID();
@@ -22,18 +23,16 @@ class MyPageController extends Controller {
         $a_orders = $order->getOrders();
 
         $order = new Order($this->conn);
-        
-        $order->fetchOrders();
-        $orders = $order->getOrders();
-        $shipper = new User($this->conn);
-        $shipper->fetchShippers();
-        $shippers = $shipper->getShippers();
-        
         $order->fetchPOrders();
         $p_orders = $order->getOrders();
+
         $order = new Order($this->conn);
         $order->fetchCOrders();
         $c_orders = $order->getOrders();
+
+        $shipper = new User($this->conn);
+        $shipper->fetchShippers();
+        $shippers = $shipper->getShippers();
 
         include "views/mypage.php";
     }

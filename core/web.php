@@ -69,6 +69,7 @@ Router::get("admin/disqualify/{username}", function($username) {
 Router::post("track", function() {
     $homeController = new HomeController;
     $homeController->track();
+});
 
 Router::get("pick-up/{id}", function($order_id) {
     $shippersController = new ShippersController;

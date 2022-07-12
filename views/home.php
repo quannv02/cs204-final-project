@@ -19,7 +19,7 @@ include "includes/head-home.php"
                     <div class="hero-btn"><h3 class="m-0 text-center">Create Order</h3></div>
                 </a>
             <?php elseif($_SESSION['user_role'] == 1):?>
-                <a href="<?=ROOT?>create" style="width: 260px;">
+                <a href="<?=ROOT?>my-page" style="width: 260px;">
                     <div class="hero-btn"><h3 class="m-0 text-center">Pick Up Order</h3></div>
                 </a>
             <?php endif;?>
