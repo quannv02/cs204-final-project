@@ -44,7 +44,8 @@ class Order {
         return $this;
     }
 
-    public function fetchOrders() {
+    // fetch by userID
+    public function fetchOrdersByID() {
         $this->order_user_id = $_SESSION['user_id'];
         $sql = "SELECT *
                 FROM orders
@@ -53,6 +54,62 @@ class Order {
         $stmt->bind_param("i", $this->order_user_id);
         $stmt->execute();
         $results = $stmt->get_result();
+
+        if($results->num_rows === 0) {
+            $this->errors[] = "Couldn't retrieve resource!";
+        } else {
+            $this->orders = $results->fetch_all(MYSQLI_ASSOC);
+        }
+        return $this;
+    }
+
+    // fetch Available orders
+    public function fetchAOrders() {
+        $sql = "SELECT *
+                FROM orders
+                WHERE orders.status = 1";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $results = $stmt->get_result();
+
+        if($results->num_rows === 0) {
+            $this->errors[] = "Couldn't retrieve resource!";
+        } else {
+            $this->orders = $results->fetch_all(MYSQLI_ASSOC);
+        }
+        return $this;
+    }
+
+    // fetch Progressing orders
+    public function fetchPOrders() {
+        $this->order_shipper_id = $_SESSION['user_id'];
+        $sql = "SELECT *
+                FROM orders
+                WHERE orders.status = 2 AND orders.shipper_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $this->order_shipper_id);
+        $stmt->execute();
+        $results = $stmt->get_result();
+
+        if($results->num_rows === 0) {
+            $this->errors[] = "Couldn't retrieve resource!";
+        } else {
+            $this->orders = $results->fetch_all(MYSQLI_ASSOC);
+        }
+        return $this;
+    }
+
+    // fetch Completed orders
+    public function fetchCOrders() {
+        $this->order_shipper_id = $_SESSION['user_id'];
+        $sql = "SELECT *
+                FROM orders
+                WHERE orders.status = 3 AND orders.shipper_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $this->order_shipper_id);
+        $stmt->execute();
+        $results = $stmt->get_result();
+
         if($results->num_rows === 0) {
             $this->errors[] = "Couldn't retrieve resource!";
         } else {
@@ -121,7 +178,7 @@ class Order {
                 FROM orders
                 WHERE orders.user_id = ? AND orders.id = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("ii",$this->order_user_id, $this->order_id);
+        $stmt->bind_param("ii", $this->order_user_id, $this->order_id);
         $stmt->execute();
         $results = $stmt->get_result();
 
@@ -132,6 +189,7 @@ class Order {
         }
         return $this;
     }
+
 
     public function track($order) {
         $this->order_id = $order['tracking-number'];
@@ -148,5 +206,45 @@ class Order {
             $this->order = $result->fetch_assoc();
         }
         return $this;
+    }
+
+    public function pickUp($order_id) {
+        $this->order_shipper_id = $_SESSION['user_id'];
+        $this->order_id = $order_id;
+        $this->order_status = 2;
+
+        $sql = "UPDATE orders
+                SET orders.shipper_id = ?, orders.status = ?
+                WHERE orders.id = ?";
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bind_param("iii", $this->order_shipper_id, $this->order_status, $this->order_id);
+        $stmt->execute();
+        var_dump($stmt);
+
+        if($stmt->affected_rows !== 1) {
+            $this->errors[] = "Order pick up fail!";
+        }
+
+        return $this;
+    }
+
+    public function completeOrder($order_id) {
+      $this->order_shipper_id = $_SESSION['user_id'];
+      $this->order_id = $order_id;
+      $this->order_status = 3;
+
+      $sql = "UPDATE orders
+              SET orders.status = ?
+              WHERE orders.shipper_id = ? AND orders.id = ?";
+      $stmt = $this->conn->prepare($sql);
+      $stmt->bind_param("iii", $this->order_status, $this->order_shipper_id, $this->order_id);
+      $stmt->execute();
+
+      if($stmt->affected_rows !== 1) {
+          $this->errors[] = "Order complete fail!";
+      }
+
+      return $this;
     }
 }
