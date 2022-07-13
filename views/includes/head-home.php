@@ -7,7 +7,7 @@
     <meta name="Description" content="Enter your description here"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="<?= ROOT ?>public/css/head.css"></link>
+    <link rel="stylesheet" href="<?= ROOT ?>public/css/home.css"></link>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
     <title>WEXPress</title>
 </head>
 <body>
-    <nav class="navbar sticky-top navbar-expand-sm bg-white py-2 px-4">
+    <nav class="navbar fixed-top navbar-expand-sm py-2 px-4">
         <a class="navbar-brand ml-1" href="<?= ROOT ?>">WEXP<span>ress</span></a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">

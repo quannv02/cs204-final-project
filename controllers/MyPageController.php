@@ -8,22 +8,44 @@ class MyPageController extends Controller {
     }
 
     public function getMyPage() {
-        $orders = [];
+        $orders_by_id = [];
+        $a_orders = [];
+        $p_orders = [];
+        $c_orders = [];
+        $shippers = [];
+
         $order = new Order($this->conn);
-        $order->fetchOrders();
-        $orders = $order->getOrders();
+        $order->fetchOrdersByID();
+        $orders_by_id = $order->getOrders();
+
+        $order = new Order($this->conn);
+        $order->fetchAOrders();
+        $a_orders = $order->getOrders();
+
+        $order = new Order($this->conn);
+        $order->fetchPOrders();
+        $p_orders = $order->getOrders();
+
+        $order = new Order($this->conn);
+        $order->fetchCOrders();
+        $c_orders = $order->getOrders();
+
+        $shipper = new User($this->conn);
+        $shipper->fetchShippers();
+        $shippers = $shipper->getShippers();
+
         include "views/mypage.php";
     }
 
     public function search() {
-        $orders = [];
+        $orders_by_id = [];
         $order = new Order($this->conn);
         if($order->search($this->req)->success()) {
-          $orders = $order->getOrders();
+          $orders_by_id = $order->getOrders();
           include "views/mypage.php";
         } else {
-            $errors = $order->errors;
-            include "views/mypage.php";
+          $errors = $order->errors;
+          include "views/mypage.php";
         }
     }
 

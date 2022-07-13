@@ -8,6 +8,7 @@ class User {
     public $user_password_confirm;
     public $user_hash;
     public $user_role;
+    public $user_verified;
     public $conn;
     public $errors = [];
     public $user = [];
@@ -42,6 +43,21 @@ class User {
         if(!password_verify($req['password'], $this->user['password_hash'])) {
             $this->errors[] = "Invalid password!";
         }
+        
+        $this->user_name = $req['username'];
+        $this->user_verified = 1;
+        $sql = "SELECT *
+                FROM users
+                WHERE users.username = ? AND (users.verified = ?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("si", $this->user_name, $this->user_verified);
+        $stmt->execute();
+        $results = $stmt->get_result();
+
+        if($results->num_rows !== 1) {
+            $this->errors[] = "Shipper has not been qualified!";
+        }
+
         return $this;
     }
 
@@ -103,5 +119,35 @@ class User {
         }
 
         return $this;
+    }
+
+    public function fetchShippers() {
+        $this->user_role = 1;
+        $sql = "SELECT *
+                FROM users
+                WHERE users.role = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $this->user_role);
+        $stmt->execute();
+        $results = $stmt->get_result();
+        if($results->num_rows === 0) {
+            $this->users[] = "Couldn't retrieve resource!";
+        } else {
+            $this->users = $results->fetch_all(MYSQLI_ASSOC);
+        }
+        return $this;
+    }
+
+    public function getShippers() {
+        return $this->users;
+    }
+
+    public function update($username, $status) {
+        $this->user_verified = $status;
+        $this->user_name = $username;
+        $sql = "UPDATE users SET verified = ? WHERE username = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("is", $this->user_verified, $this->user_name);
+        $stmt->execute();
     }
 }

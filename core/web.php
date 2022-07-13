@@ -56,7 +56,33 @@ Router::post("search", function() {
     $myPageController->search();
 });
 
+
 Router::post("delete", function() {
     $myPageController = new MyPageController;
     $myPageController->delete();
+});
+
+Router::get("admin/qualify/{username}", function($username) {
+    $userController = new UsersController;
+    $userController->verify($username, 1);
+});
+
+Router::get("admin/disqualify/{username}", function($username) {
+    $userController = new UsersController;
+    $userController->verify($username, 0);
+});
+
+Router::post("track", function() {
+    $homeController = new HomeController;
+    $homeController->track();
+});
+
+Router::get("pick-up/{id}", function($order_id) {
+    $shippersController = new ShippersController;
+    $shippersController->pickUp($order_id);
+});
+
+Router::get("complete-order/{id}", function($order_id) {
+    $shippersController = new ShippersController;
+    $shippersController->completeOrder($order_id);
 });
