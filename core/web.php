@@ -56,6 +56,12 @@ Router::post("search", function() {
     $myPageController->search();
 });
 
+
+Router::post("delete", function() {
+    $myPageController = new MyPageController;
+    $myPageController->delete();
+});
+
 Router::get("admin/qualify/{username}", function($username) {
     $userController = new UsersController;
     $userController->verify($username, 1);

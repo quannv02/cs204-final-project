@@ -40,7 +40,6 @@ class MyPageController extends Controller {
     public function search() {
         $orders_by_id = [];
         $order = new Order($this->conn);
-
         if($order->search($this->req)->success()) {
           $orders_by_id = $order->getOrders();
           include "views/mypage.php";
@@ -48,5 +47,11 @@ class MyPageController extends Controller {
           $errors = $order->errors;
           include "views/mypage.php";
         }
+    }
+
+    public function delete() {
+        $order =  new Order($this->conn);
+        $order->delete($this->req); // $this->req = $_POST
+        header("Location: " . ROOT . "my-page");
     }
 }
