@@ -56,6 +56,10 @@ Router::post("search", function() {
     $myPageController->search();
 });
 
+Router::post("search-shipper", function() {
+    $myPageController = new MyPageController;
+    $myPageController->searchShipper();
+});
 
 Router::post("delete", function() {
     $myPageController = new MyPageController;
@@ -85,4 +89,8 @@ Router::get("pick-up/{id}", function($order_id) {
 Router::get("complete-order/{id}", function($order_id) {
     $shippersController = new ShippersController;
     $shippersController->completeOrder($order_id);
+});
+
+Router::get("reset", function() {
+    Router::redirect("my-page");
 });

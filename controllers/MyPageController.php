@@ -49,6 +49,18 @@ class MyPageController extends Controller {
         }
     }
 
+    public function searchShipper() {
+        $shippers = [];
+        $user = new User($this->conn);
+        if($user->search($this->req)->success()) {
+            $shippers = $user->getShippers();
+          include "views/mypage.php";
+        } else {
+          $errors = $user->errors;
+          include "views/mypage.php";
+        }
+    }
+
     public function delete() {
         $order =  new Order($this->conn);
         $order->delete($this->req); // $this->req = $_POST

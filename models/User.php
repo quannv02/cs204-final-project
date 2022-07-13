@@ -80,9 +80,9 @@ class User {
         // password_hash the user password
         $this->user_hash = password_hash($this->user_password, PASSWORD_DEFAULT);
         // insert new user
-        $sql = "INSERT INTO users (username, email, password_hash, role) VALUES (?,?,?,?)";
+        $sql = "INSERT INTO users (username, email, password_hash, role, verified) VALUES (?,?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("sssi", $this->user_name, $this->user_email, $this->user_hash, $this->user_role);
+        $stmt->bind_param("sssii", $this->user_name, $this->user_email, $this->user_hash, $this->user_role, $this->user_verified);
         $stmt->execute();
         if($stmt->affected_rows === 1) {
             $this->getUserByName($this->user_name);
@@ -102,7 +102,11 @@ class User {
 
         if($user['role'] == "shipper") {
             $this->user_role = 1;
-        } else $this->user_role = 2;
+            $this->user_verified = 0;
+        } else {
+            $this->user_role = 2;
+            $this->user_verified = 1;
+        }
 
         //var_dump($user);
         // (3) if statements to check username (should not exist), email is valid, 
@@ -118,6 +122,25 @@ class User {
             $this->errors[] = "Password must match and cannot be empty!";
         }
 
+        return $this;
+    }
+
+    public function search($user) {
+        $this->user_name = $user['search'];
+
+        $sql = "SELECT *
+                FROM users
+                WHERE users.username = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("s", $this->user_name);
+        $stmt->execute();
+        $results = $stmt->get_result();
+
+        if($results->num_rows !== 1) {
+            $this->errors[] = "No Shipper Found!";
+        } else {
+            $this->users = $results->fetch_all(MYSQLI_ASSOC);
+        }
         return $this;
     }
 

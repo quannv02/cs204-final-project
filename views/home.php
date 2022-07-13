@@ -22,6 +22,10 @@ include "includes/head-home.php"
                 <a href="<?=ROOT?>my-page" style="width: 260px;">
                     <div class="hero-btn"><h3 class="m-0 text-center">Pick Up Order</h3></div>
                 </a>
+            <?php elseif($_SESSION['user_role'] == 0):?>
+                <a href="<?=ROOT?>my-page" style="width: 300px;">
+                    <div class="hero-btn"><h3 class="m-0 text-center">Manage Shippers</h3></div>
+                </a>
             <?php endif;?>
         </div>
 

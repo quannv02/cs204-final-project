@@ -27,12 +27,12 @@ include "includes/head.php";
                 </div>  
                 <div class="form-group">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role" id="shipper" value="shipper" checked>
-                        <label class="form-check-label" for="shipper">Shipper account</label>
+                        <input class="form-check-input" type="radio" name="role" id="user" value="user" checked>
+                        <label class="form-check-label" for="user">User account</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role" id="user" value="user">
-                        <label class="form-check-label" for="user">User account</label>
+                        <input class="form-check-input" type="radio" name="role" id="shipper" value="shipper">
+                        <label class="form-check-label" for="shipper">Shipper account</label>
                     </div>
                 </div>
                 <?php CSRF::outputToken(); ?>

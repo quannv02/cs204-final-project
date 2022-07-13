@@ -35,7 +35,6 @@ include "includes/head.php";
                 </form>
             </div>
         </div>
-        <//?php var_dump($_SESSION) ?>
     </div>
 
 <?php

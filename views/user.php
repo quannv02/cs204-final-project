@@ -11,12 +11,17 @@
 
 <div class="myorders jumbotron bg-white mx-4 my-3 p-5 rounded-0">
     <h3 class="ml-2">My Orders</h3>
-    <form class="form-inline mt-3" action="<?= ROOT ?>search" method="post">
-        <label class="sr-only" for="inlineFormInputName2">Name</label>
-        <input type="text" name="search" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Tracking Number">
-        <?php CSRF::outputToken(); ?>
-        <button type="submit" class="btn mb-2 text-white">Search</button>
-    </form>
+    <div class="container d-flex flex-wrap p-0 m-0">
+        <form class="form-inline mt-3" action="<?= ROOT ?>search" method="post">
+            <label class="sr-only" for="inlineFormInputName2">Name</label>
+            <input type="text" name="search" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Tracking Number">
+            <?php CSRF::outputToken(); ?>
+            <button type="submit" class="btn mb-2 text-white">Search</button>
+        </form>
+        <form class="form-inline ml-2 mt-3" action="<?= ROOT ?>reset">
+            <button type="submit" class="btn mb-2 text-white">Reset</button>
+        </form>
+    </div>
 
   <div class="table-func mt-3">
     <table class="table table-striped w-100">

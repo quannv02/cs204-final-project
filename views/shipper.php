@@ -19,8 +19,8 @@
               <thead>
                   <tr>
                       <th scope="col">Order Number</th>
-                      <th scope="col">Sender Name</th>
-                      <th scope="col">Recipient Name</th>
+                      <th scope="col">Pick Up Address</th>
+                      <th scope="col">Delivery Address</th>
                       <th scope="col">Shipping Fee</th>
                       <th scope="col"></th>
                   </tr>
@@ -29,8 +29,8 @@
                 <?php foreach($a_orders as $order): ?>
                   <tr>
                       <td scope="row"><a href="<?= ROOT ?>order/<?php echo $order['id'] ?>"><?= $order['id']; ?></a></td>
-                      <td></span> <?php echo $order['sender_name']; ?></td>
-                      <td></span> <?php echo $order['recipient_name']; ?></td>
+                      <td></span> <?php echo $order['sender_address']; ?></td>
+                      <td></span> <?php echo $order['recipient_address']; ?></td>
                       <td><?php echo $order['weight']*10000; ?> VND</td>
                       <td>
                         <form action='<?= ROOT ?>pick-up/<?= $order['id']?>'>
@@ -65,8 +65,8 @@
               <thead>
                   <tr>
                       <th scope="col">Order Number</th>
-                      <th scope="col">Sender Name</th>
-                      <th scope="col">Recipient Name</th>
+                      <th scope="col">Pick Up Address</th>
+                      <th scope="col">Delivery Address</th>
                       <th scope="col">Shipping Fee</th>
                       <th scope="col"></th>
                   </tr>
@@ -75,8 +75,8 @@
                 <?php foreach($p_orders as $order): ?>
                   <tr>
                       <td scope="row"><a href="<?= ROOT ?>order/<?php echo $order['id'] ?>"><?= $order['id']; ?></a></td>
-                      <td></span> <?php echo $order['sender_name']; ?></td>
-                      <td></span> <?php echo $order['recipient_name']; ?></td>
+                      <td></span> <?php echo $order['sender_address']; ?></td>
+                      <td></span> <?php echo $order['recipient_address']; ?></td>
                       <td><?php echo $order['weight']*10000; ?> VND</td>
                       <td class="row">
                         <form action='<?= ROOT ?>complete-order/<?= $order['id']?>'>
@@ -110,8 +110,8 @@
           <?php foreach($c_orders as $order): ?>
             <div class="order p-3 d-flex flex-wrap justify-content-between">
                 <a href="<?= ROOT ?>order/<?php echo $order['id'] ?>" class="order-info">
-                    <p class="m-0 font-weight-bold"><span class="font-weight-normal">From: </span> <?php echo $order['sender_name']; ?></p>
-                    <p class="m-0 font-weight-bold"><span class="font-weight-normal">To: </span><?php echo $order['recipient_name']; ?></p>
+                    <p class="m-0 font-weight-bold"><span class="font-weight-normal">From: </span> <?php echo $order['sender_address']; ?></p>
+                    <p class="m-0 font-weight-bold"><span class="font-weight-normal">To: </span><?php echo $order['recipient_address']; ?></p>
                     <p class="m-0">(Shipping Fee: <?php echo $order['weight']*10000; ?> VND)</p>
                 </a>
             </div>
