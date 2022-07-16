@@ -23,6 +23,7 @@ WEXpress is a website for tracking and order management with permissioned system
 
 #### _Admin:_
 * Verify shipper account
+* Admin account username/password: admin/itec2022
 #### _User:_
 * Signup/Login/logout user account
 * Create orders
